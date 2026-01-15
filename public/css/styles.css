@@ -96,7 +96,7 @@ nav ul li {
 }
 
 #dmc h2,
-#dmc p {
+#dmc h3 {
   padding-bottom: 0.3rem;
 }
 
@@ -104,8 +104,9 @@ nav ul li {
   font-size: 1.2rem;
 }
 
-#dmc p {
+#dmc h3 {
   font-size: 1rem;
+  font-weight: 400;
 }
 
 #dmc button {
@@ -184,7 +185,7 @@ footer {
     font-size: 2rem;
   }
 
-  #dmc p {
+  #dmc h3 {
     font-size: 1.8rem;
   }
 
