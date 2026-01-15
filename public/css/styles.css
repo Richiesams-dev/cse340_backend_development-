@@ -9,6 +9,7 @@
 
 body {
   margin: 1rem 2rem;
+  font-family: sans-serif;
 }
 
 #wrapper {
@@ -94,10 +95,17 @@ nav ul li {
   color: green;
 }
 
-#dmc h3,
+#dmc h2,
 #dmc p {
   padding-bottom: 0.3rem;
+}
+
+#dmc h2 {
   font-size: 1.2rem;
+}
+
+#dmc p {
+  font-size: 1rem;
 }
 
 #dmc button {
@@ -169,12 +177,18 @@ footer {
 
   #dmc {
     left: 6%;
-    top: 10%;
+    top: 12%;
   }
 
-  #dmc h3,
-  #dmc p {
-    padding-bottom: 0.3rem;
+  #dmc h2 {
     font-size: 2rem;
+  }
+
+  #dmc p {
+    font-size: 1.8rem;
+  }
+
+  #dmc button {
+    padding: 10px 25px;
   }
 }
