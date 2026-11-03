@@ -1,0 +1,28 @@
+{
+  "name": "cse340_backend_development-",
+  "version": "1.0.0",
+  "description": "CSE 340 Backend Development",
+  "homepage": "https://github.com/Richiesams-dev/cse340_backend_development-#readme",
+  "bugs": {
+    "url": "https://github.com/Richiesams-dev/cse340_backend_development-/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Richiesams-dev/cse340_backend_development-.git"
+  },
+  "license": "ISC",
+  "author": "Richman Bibowei Fedidel",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^7.0.2",
+    "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
