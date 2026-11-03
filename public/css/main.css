@@ -1,4 +1,4 @@
-html, body {
+/* html, body {
     background-color: lightblue;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -26,5 +26,228 @@ body {
                 color: #0066cc;
             }
         }
+    }
+} */
+
+
+/* CSE 340 Service Network - main stylesheet
+   Save as public/css/main.css (replaces the old file). */
+
+:root {
+    --ink: #1c2b2e;          /* body text */
+    --ink-soft: #46585c;     /* secondary text */
+    --paper: #f3f6f5;        /* page background */
+    --surface: #ffffff;      /* content panel */
+    --line: #cfdad7;         /* borders */
+    --teal: #0f4c5c;         /* nav, footer, accents */
+    --teal-dark: #0a3641;
+    --link: #0b5c8a;        /* links on light backgrounds */
+    --gold: #f2b705;         /* decorative accent only, never text */
+    --radius: 6px;
+    --font-body: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-heading: Georgia, "Times New Roman", serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;           /* respect the user's browser font size */
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;    /* keeps the footer at the bottom on short pages */
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;      /* 17px */
+    line-height: 1.6;
+}
+
+/* ---------- Navigation ---------- */
+
+nav {
+    background-color: var(--teal);
+    border-bottom: 4px solid var(--gold);
+}
+
+nav ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0 1rem;
+    max-width: 62rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    padding: 0.85rem 1rem;     /* comfortable 44px+ tap target */
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+}
+
+
+nav a:hover,
+nav a:focus-visible {
+    color: #ffffff;
+    background-color: var(--teal-dark);
+    border-bottom-color: var(--gold);
+}
+
+nav a[aria-current="page"] {
+    border-bottom-color: var(--gold);
+}
+
+/* ---------- Main content ---------- */
+
+main {
+    flex: 1;                   /* fills the space between nav and footer */
+    width: 100%;
+    max-width: 62rem;
+    margin: 1.5rem auto;
+    padding: 2rem 1.25rem;
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    color: var(--teal);
+    line-height: 1.25;
+    margin: 0 0 0.75rem;
+}
+
+h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+}
+
+h2 {
+    font-size: clamp(1.25rem, 3.5vw, 1.6rem);
+    margin-top: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+p {
+    margin: 0 0 1rem;
+    max-width: 68ch;           /* keeps lines readable */
+}
+
+a {
+    color: var(--link);
+    text-underline-offset: 0.15em;
+}
+
+a:hover {
+    color: var(--teal-dark);
+}
+
+/* Lists in the content area display as a responsive grid of tiles */
+main ul {
+    list-style: none;
+    margin: 1.5rem 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1rem;
+}
+
+main li {
+    padding: 1rem 1.25rem;
+    background-color: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 6px solid var(--teal);
+    border-radius: var(--radius);
+    font-weight: 600;
+}
+
+/* ---------- Images ---------- */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.main-logo {
+    display: block;
+    width: 100%;
+    max-width: 22rem;
+    margin: 2rem auto 0;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    background-color: var(--teal);
+    color: #ffffff;
+    padding: 1.25rem 1rem;
+    text-align: center;
+}
+
+footer p {
+    margin: 0 auto;
+    font-size: 0.95rem;
+}
+
+/* ---------- Accessibility ---------- */
+
+:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+}
+
+main :focus-visible {
+    outline-color: var(--teal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ---------- Larger screens ---------- */
+
+@media (min-width: 48rem) {
+    main {
+        margin: 2rem auto;
+        padding: 2.5rem 2.5rem;
+    }
+}
+
+/* Full-width panel on small phones */
+@media (max-width: 30rem) {
+    main {
+        margin: 0;
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+    }
+
+    nav a {
+        padding: 0.75rem 0.75rem;
     }
 }
