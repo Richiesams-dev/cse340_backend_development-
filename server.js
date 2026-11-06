@@ -1,9 +1,11 @@
-import { fileURLToPath } from 'url';
-import path from 'path';
-import express from 'express';
+import { getAllOrganizations } from "./src/models/organizations.js";
+import { fileURLToPath } from "url";
+import path from "path";
+import express from "express";
+import { testConnection } from "./src/models/db.js";
 
 // Define the application environment
-const NODE_ENV = process.env.NODE_ENV?.toLowerCase() || 'production';
+const NODE_ENV = process.env.NODE_ENV?.toLowerCase() || "production";
 
 const _filename = fileURLToPath(import.meta.url);
 const _dirname = path.dirname(_filename);
@@ -18,13 +20,13 @@ const app = express();
  */
 
 // Serve static files from the public directory
-app.use(express.static(path.join(_dirname, 'public')));
+app.use(express.static(path.join(_dirname, "public")));
 
 // Set EJS as the templating engine
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 // Tell Express where to find your templates
-app.set('views', path.join(_dirname, 'src/views'));
+app.set("views", path.join(_dirname, "src/views"));
 
 /**
  * Routes
@@ -36,8 +38,10 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/organizations", async (req, res) => {
+  const organizations = await getAllOrganizations();
   const title = "Our Partner Organizations";
-  res.render("organizations", { title });
+
+  res.render("organizations", { title, organizations });
 });
 
 app.get("/projects", async (req, res) => {
@@ -50,7 +54,12 @@ app.get("/categories", async (req, res) => {
   res.render("categories", { title });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
+  try {
+    await testConnection();
     console.log(`Server is running at http://127.0.0.1:${PORT}`);
     console.log(`Environment: ${NODE_ENV}`);
-})
+  } catch (error) {
+    console.error("Error connecting to the database:", error);
+  }
+});
