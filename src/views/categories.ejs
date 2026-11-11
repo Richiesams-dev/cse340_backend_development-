@@ -1,39 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('partials/header') %>
+    <main>
+        <h1>
+            <%= title %>
+        </h1>
+        <p>Browse service projects by category.</p>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %>
-    </title>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
-
-<body>
-    <!-- <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/organizations">Organizations</a></li>
-            <li><a href="/projects">Projects</a></li>
+            <li>Environmental</li>
+            <li>Educational</li>
+            <li>Community Service</li>
+            <li>Health and Wellness</li>
         </ul>
-    </nav> -->
-
-        <%- include('partials/header') %>
-            <main>
-                <h1>
-                    <%= title %>
-                </h1>
-                <p>Browse service projects by category.</p>
-        
-                <ul>
-                    <li>Environmental</li>
-                    <li>Educational</li>
-                    <li>Community Service</li>
-                    <li>Health and Wellness</li>
-                </ul>
-            </main>
-            <%- include('partials/footer') %>
-</body>
-
-</html>Categories
+    </main>
+    <%- include('partials/footer') %>
