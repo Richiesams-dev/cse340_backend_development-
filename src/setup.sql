@@ -63,3 +63,41 @@ VALUES
     (3, 'Clothing Drive', 'Collect, sort, and distribute donated clothing.', 'Rexburg, ID', '2025-04-26'),
     (3, 'Blood Drive Support', 'Assist with check-in and refreshments at the blood drive.', 'Idaho Falls, ID', '2025-05-10'),
     (3, 'Community Cleanup', 'Pick up litter and clean public spaces around town.', 'Rexburg, ID', '2025-05-24');
+
+-- ========================================
+-- Category Table
+-- ========================================
+
+CREATE TABLE category (
+    category_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE
+);
+
+INSERT INTO category (name)
+VALUES
+    ('Environmental'),
+    ('Community Service'),
+    ('Education'),
+    ('Health and Wellness');
+
+
+INSERT INTO project_category (project_id, category_id)
+VALUES
+    -- BrightFuture Builders projects (1-5)
+    (1, 2), (1, 4),          -- Community Center Renovation: Community Service, Health
+    (2, 3),                   -- Playground Build: Education
+    (3, 2), (3, 4),          -- Home Repair Blitz: Community Service, Health
+    (4, 1),                   -- Park Bench Restoration: Environmental
+    (5, 2),                   -- Roof Repair Project: Community Service
+    -- GreenHarvest Growers projects (6-10)
+    (6, 1), (6, 3),          -- Community Garden Planting: Environmental, Education
+    (7, 1),                   -- Compost Workshop: Environmental
+    (8, 2),                   -- Farmers Market Setup: Community Service
+    (9, 1), (9, 3),          -- School Garden Day: Environmental, Education
+    (10, 1), (10, 4),        -- Harvest Donation Drive: Environmental, Health
+    -- UnityServe Volunteers projects (11-15)
+    (11, 2), (11, 4),        -- Food Bank Sorting: Community Service, Health
+    (12, 2), (12, 4),        -- Senior Center Visit: Community Service, Health
+    (13, 2),                  -- Clothing Drive: Community Service
+    (14, 4),                  -- Blood Drive Support: Health
+    (15, 1), (15, 2);        -- Community Cleanup: Environmental, Community Service
