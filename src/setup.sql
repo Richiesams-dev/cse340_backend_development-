@@ -80,6 +80,15 @@ VALUES
     ('Education'),
     ('Health and Wellness');
 
+-- ========================================
+-- Project Category Table (links projects and categories)
+-- ========================================
+
+CREATE TABLE project_category (
+    project_id INTEGER NOT NULL REFERENCES project(project_id),
+    category_id INTEGER NOT NULL REFERENCES category(category_id),
+    PRIMARY KEY (project_id, category_id)
+);
 
 INSERT INTO project_category (project_id, category_id)
 VALUES
